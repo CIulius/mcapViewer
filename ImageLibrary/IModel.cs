@@ -10,5 +10,8 @@ namespace ImageLibrary
     {
         void showNextImage();
         void showPreviousImage();
+        void setCurrentImage();
+        string getCurrentImage();
+        List<string> listOfImages { get; set; }
     }
 }
