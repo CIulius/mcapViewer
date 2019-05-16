@@ -39,6 +39,7 @@ namespace ImageLibrary
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //Browse
             var browserDialog = new FolderBrowserDialog();
             DialogResult result = browserDialog.ShowDialog();
             
@@ -57,6 +58,7 @@ namespace ImageLibrary
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //Previous
             _presenter.previousImage();
             _presenter.getCurrentImage();
 
@@ -66,12 +68,35 @@ namespace ImageLibrary
 
         private void button3_Click(object sender, EventArgs e)
         {
+            //Next
             _presenter.nextImage();
             _presenter.getCurrentImage();
 
             Bitmap image = new Bitmap(this.imagePath);
             pictureBox1.Image = image;
+            
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //Close
+            this.Close();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //Rotate left
+            Image img = pictureBox1.Image;
+            img.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            pictureBox1.Image = img;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //Rotate right
+            Image img = pictureBox1.Image;
+            img.RotateFlip(RotateFlipType.Rotate270FlipNone);
+            pictureBox1.Image = img;
+        }
     }
 }

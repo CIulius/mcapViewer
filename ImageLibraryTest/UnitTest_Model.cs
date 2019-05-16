@@ -38,10 +38,5 @@ namespace ImageLibraryTest
             m.showPreviousImage();
             Assert.AreEqual(m.getCurrentImage(), "one");
         }
-        [TestMethod]
-        public void Test_View()
-        {
-            Class1.main();
-        }
     }
 }
