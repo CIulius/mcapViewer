@@ -16,7 +16,6 @@ namespace ImageLibrary
         private Presenter _presenter = null;
         private readonly Model _model;
       
-
         public View(Model model)
         {
             InitializeComponent();
@@ -37,8 +36,11 @@ namespace ImageLibrary
             
             if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(browserDialog.SelectedPath))
             {
-                string[] files = Directory.GetFiles(browserDialog.SelectedPath);
-                _presenter.loadImagesFrom(files);
+                /*
+                browserDialog.Sel
+                List<string> files = Directory.GetFiles(browserDialog.SelectedPath).ToList();
+                */
+                _presenter.loadImagesFrom(browserDialog.SelectedPath);
             }
         }
 
