@@ -20,37 +20,46 @@ namespace ImageLibrary
             this._model = model;
         }
 
-        public void loadImages(string[] files)
+        public void loadImagesFrom(string[] files)
         {
             List<string> list = new List<string>();
 
-            foreach (string s in files)
+            foreach (string filePath in files)
             {
-                if (s.Split('.')[1] == "jpg")
+                string extension = Path.GetExtension(filePath);
+                if (extension.Equals(".jpg", StringComparison.CurrentCultureIgnoreCase))
                 {
-                    list.Add(s);
+                    list.Add(filePath);
+                    if (_model.CurrentImagePath == null)
+                    {
+                        _model.CurrentImagePath = filePath;
+                        showCurrentImage();
+                    }
                 }
             }
             this._model.listOfImages = list;
         }
 
-        public void getCurrentImage()
+        public void showCurrentImage()
         {
-            _view.imagePath = _model.getCurrentImage();
-        }
-        public void setCurrentImage()
-        {
-            _model.setCurrentImage();
+            _view.showImage(_model.CurrentImagePath);
         }
 
-        public void nextImage()
+        public void setCurrentImage(string path)
         {
-            _model.showNextImage();
+            _model.CurrentImagePath = path;
         }
 
-        public void previousImage()
+        public void loadAndShowNextImage()
         {
-            _model.showPreviousImage();
+            _model.moveToNextImage();
+            showCurrentImage();
+        }
+
+        public void loadAndShowPreviousImage()
+        {
+            _model.moveToPreviousImage();
+            showCurrentImage();
         }
     }
 }

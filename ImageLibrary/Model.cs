@@ -9,77 +9,82 @@ namespace ImageLibrary
     public class Model : IModel
     {
         private string _currentImagePath;
-        private List<string> _imagesList;
+        private List<string> _imagePathsList;
 
-        public Model()
+        public Model(List<string> imagePathsList)
         {
-            _imagesList = new List<string>();
-            _currentImagePath = "";
+            _currentImagePath = null;
+        }
+
+        public Model() : this(new List<string>())
+        {
         }
 
         public List<string> listOfImages
         {
             get
             {
-                return _imagesList;
+                return _imagePathsList;
             }
 
             set
             {
-                this._imagesList = value;
+                this._imagePathsList = value;
             }
         }
 
-        public void showNextImage()
+        public string CurrentImagePath
+        {
+            get
+            {
+                return _currentImagePath;
+            }
+            set
+            {
+                _currentImagePath = value;
+            }
+        }
+
+        public void moveToNextImage()
         {
             int index = -1;
-            bool finded = false;
+            bool found = false;
 
-            while (index < _imagesList.Count && finded != true)
+            while (index < _imagePathsList.Count && found != true)
             {
                 index++;
 
-                if (_imagesList[index].Equals(_currentImagePath))
+                if (_imagePathsList[index].Equals(_currentImagePath))
                 {
                     index++;
-                    index %= _imagesList.Count;
+                    index %= _imagePathsList.Count;
 
-                    _currentImagePath = _imagesList[index];
-                    finded = true;
+                    _currentImagePath = _imagePathsList[index];
+                    found = true;
                 }
             }
         }
 
-        public void showPreviousImage()
+        public void moveToPreviousImage()
         {
-            int index = _imagesList.Count;
+            int index = _imagePathsList.Count;
             bool finded = false;
 
             while (index > 0 && finded != true)
             {
                 index--;
 
-                if (_imagesList[index].Equals(_currentImagePath))
+                if (_imagePathsList[index].Equals(_currentImagePath))
                 {
                     index--;
                     if (index < 0)
                     {
-                        index = _imagesList.Count - 1;
+                        index = _imagePathsList.Count - 1;
                     }
-                    _currentImagePath = _imagesList[index];
+                    _currentImagePath = _imagePathsList[index];
                     finded = true;
                 }
             }
-        }
-
-        public string getCurrentImage()
-        {
-            return _currentImagePath;
-        }
-
-        public void setCurrentImage()
-        {
-            _currentImagePath = _imagesList[0];
         }
     }
 }

@@ -8,10 +8,9 @@ namespace ImageLibrary
 {
     public interface IModel
     {
-        void showNextImage();
-        void showPreviousImage();
-        void setCurrentImage();
-        string getCurrentImage();
+        void moveToNextImage();
+        void moveToPreviousImage();
+        string CurrentImagePath { get; set; }
         List<string> listOfImages { get; set; }
     }
 }

@@ -11,32 +11,32 @@ namespace ImageLibraryTest
         public void Test_showNextImageMethod()
         {
             Model m = new Model();
-            Assert.AreEqual(m.getCurrentImage(), "one");
+            Assert.AreEqual(m.CurrentImagePath, "one");
 
-            m.showNextImage();
-            Assert.AreEqual(m.getCurrentImage(), "two");
+            m.moveToNextImage();
+            Assert.AreEqual(m.CurrentImagePath, "two");
 
-            m.showNextImage();
-            Assert.AreEqual(m.getCurrentImage(), "three");
+            m.moveToNextImage();
+            Assert.AreEqual(m.CurrentImagePath, "three");
 
-            m.showNextImage();
-            Assert.AreEqual(m.getCurrentImage(), "one");
+            m.moveToNextImage();
+            Assert.AreEqual(m.CurrentImagePath, "one");
         }
 
         [TestMethod]
         public void Test_showPreviousImageMethod()
         {
             Model m = new Model();
-            Assert.AreEqual(m.getCurrentImage(), "one");
+            Assert.AreEqual(m.CurrentImagePath, "one");
 
-            m.showPreviousImage();
-            Assert.AreEqual(m.getCurrentImage(), "three");
+            m.moveToPreviousImage();
+            Assert.AreEqual(m.CurrentImagePath, "three");
 
-            m.showPreviousImage();
-            Assert.AreEqual(m.getCurrentImage(), "two");
+            m.moveToPreviousImage();
+            Assert.AreEqual(m.CurrentImagePath, "two");
 
-            m.showPreviousImage();
-            Assert.AreEqual(m.getCurrentImage(), "one");
+            m.moveToPreviousImage();
+            Assert.AreEqual(m.CurrentImagePath, "one");
         }
     }
 }

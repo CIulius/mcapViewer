@@ -15,88 +15,56 @@ namespace ImageLibrary
     {
         private Presenter _presenter = null;
         private readonly Model _model;
-        private string _path;
+      
 
         public View(Model model)
         {
-            _model = model;
             InitializeComponent();
+            _model = model;
             _presenter = new Presenter(this, _model);
         }
 
-        public string imagePath
+        public void showImage(string path)
         {
-            get
-            {
-                return _path;
-            }
-
-            set
-            {
-                _path = value;
-            }
+            Bitmap bitmap = new Bitmap(path);
+            this.mainPictureBox.Image = bitmap;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void browseButton_Click(object sender, EventArgs e)
         {
-            //Browse
             var browserDialog = new FolderBrowserDialog();
             DialogResult result = browserDialog.ShowDialog();
             
             if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(browserDialog.SelectedPath))
             {
                 string[] files = Directory.GetFiles(browserDialog.SelectedPath);
-                _presenter.loadImages(files);
+                _presenter.loadImagesFrom(files);
             }
-
-            _presenter.setCurrentImage();
-            _presenter.getCurrentImage();
-
-            Bitmap image = new Bitmap(this.imagePath);
-            pictureBox1.Image = image;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void previousButton_Click(object sender, EventArgs e)
         {
-            //Previous
-            _presenter.previousImage();
-            _presenter.getCurrentImage();
-
-            Bitmap image = new Bitmap(this.imagePath);
-            pictureBox1.Image = image;
+            _presenter.loadAndShowPreviousImage();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void nextButton_Click(object sender, EventArgs e)
         {
-            //Next
-            _presenter.nextImage();
-            _presenter.getCurrentImage();
-
-            Bitmap image = new Bitmap(this.imagePath);
-            pictureBox1.Image = image;
-            
+            _presenter.loadAndShowNextImage();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            //Close
-            this.Close();
-        }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void rotateClockwiseButton_Click(object sender, EventArgs e)
         {
-            //Rotate left
-            Image img = pictureBox1.Image;
+            Image img = mainPictureBox.Image;
             img.RotateFlip(RotateFlipType.Rotate90FlipNone);
-            pictureBox1.Image = img;
+            mainPictureBox.Image = img;
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void rotateAntiClockwiseButton_Click(object sender, EventArgs e)
         {
-            //Rotate right
-            Image img = pictureBox1.Image;
+            Image img = mainPictureBox.Image;
             img.RotateFlip(RotateFlipType.Rotate270FlipNone);
-            pictureBox1.Image = img;
+            mainPictureBox.Image = img;
         }
     }
 }
