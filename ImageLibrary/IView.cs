@@ -8,6 +8,6 @@ namespace ImageLibrary
 {
     public interface IView
     {
-        void showImage(string path);
+        void ShowImage(string path);
     }
 }

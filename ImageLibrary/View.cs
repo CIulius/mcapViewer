@@ -23,7 +23,7 @@ namespace ImageLibrary
             _presenter = new Presenter(this, _model);
         }
 
-        public void showImage(string path)
+        public void ShowImage(string path)
         {
             Bitmap bitmap = new Bitmap(path);
             this.mainPictureBox.Image = bitmap;
@@ -40,18 +40,18 @@ namespace ImageLibrary
                 browserDialog.Sel
                 List<string> files = Directory.GetFiles(browserDialog.SelectedPath).ToList();
                 */
-                _presenter.loadImagesFrom(browserDialog.SelectedPath);
+                _presenter.LoadImagesFrom(browserDialog.SelectedPath);
             }
         }
 
         private void previousButton_Click(object sender, EventArgs e)
         {
-            _presenter.loadAndShowPreviousImage();
+            _presenter.LoadAndShowPreviousImage();
         }
 
         private void nextButton_Click(object sender, EventArgs e)
         {
-            _presenter.loadAndShowNextImage();
+            _presenter.LoadAndShowNextImage();
         }
 
 

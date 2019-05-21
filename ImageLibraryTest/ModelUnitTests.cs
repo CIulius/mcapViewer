@@ -15,13 +15,13 @@ namespace ImageLibraryTest
 
             Assert.AreEqual("one.jpg", m.CurrentImagePath);
 
-            m.moveToNextImage();
+            m.MoveToNextImage();
             Assert.AreEqual("two.png", m.CurrentImagePath);
 
-            m.moveToNextImage();
+            m.MoveToNextImage();
             Assert.AreEqual("three.bmp", m.CurrentImagePath);
 
-            m.moveToNextImage();
+            m.MoveToNextImage();
             Assert.AreEqual("one.jpg", m.CurrentImagePath);
         }
 
@@ -31,13 +31,13 @@ namespace ImageLibraryTest
             Model m = new Model(new List<string> { "one.jpg", "two.png", "three.bmp" });
             Assert.AreEqual("one.jpg", m.CurrentImagePath);
 
-            m.moveToPreviousImage();
+            m.MoveToPreviousImage();
             Assert.AreEqual("three.bmp", m.CurrentImagePath);
 
-            m.moveToPreviousImage();
+            m.MoveToPreviousImage();
             Assert.AreEqual("two.png", m.CurrentImagePath);
 
-            m.moveToPreviousImage();
+            m.MoveToPreviousImage();
             Assert.AreEqual("one.jpg", m.CurrentImagePath);
         }
 

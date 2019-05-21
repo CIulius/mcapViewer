@@ -20,27 +20,27 @@ namespace ImageLibrary
             this._model = model;
         }
 
-        public void loadImagesFrom(string path)
+        public void LoadImagesFrom(string path)
         {
-            _model.loadImagePathsFrom(path);
-            showCurrentImage();
+            _model.LoadImagePathsFrom(path);
+            ShowCurrentImage();
         }
 
-        public void showCurrentImage()
+        public void LoadAndShowNextImage()
         {
-            _view.showImage(_model.CurrentImagePath);
+            _model.MoveToNextImage();
+            ShowCurrentImage();
         }
 
-        public void loadAndShowNextImage()
+        public void LoadAndShowPreviousImage()
         {
-            _model.moveToNextImage();
-            showCurrentImage();
+            _model.MoveToPreviousImage();
+            ShowCurrentImage();
         }
-
-        public void loadAndShowPreviousImage()
+        
+        public void ShowCurrentImage()
         {
-            _model.moveToPreviousImage();
-            showCurrentImage();
+            _view.ShowImage(_model.CurrentImagePath);
         }
     }
 }

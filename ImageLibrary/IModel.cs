@@ -8,10 +8,10 @@ namespace ImageLibrary
 {
     public interface IModel
     {
-        void moveToNextImage();
-        void moveToPreviousImage();
+        void MoveToNextImage();
+        void MoveToPreviousImage();
         string CurrentImagePath { get; set; }
         List<string> ImagePaths { get; }
-        void loadImagePathsFrom(string path);
+        void LoadImagePathsFrom(string path);
     }
 }

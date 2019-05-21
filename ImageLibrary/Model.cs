@@ -11,12 +11,14 @@ namespace ImageLibrary
     {
         private static readonly List<string> ImageExtensions = new List<string> { ".jpg", ".jpe", ".bmp", ".png", ".gif" };
 
+        private IEnumerator<string> _currentImagePathEnumerator;
+
         private string _currentImagePath;
         private List<string> _imagePathsList;
 
         public Model(List<string> pathsList)
         {
-            loadImagePathsFrom(pathsList);
+            LoadImagePathsFrom(pathsList);
         }
 
         public Model() : this(new List<string>())
@@ -43,18 +45,18 @@ namespace ImageLibrary
             }
         }
 
-        public void loadImagePathsFrom(string path)
+        public void LoadImagePathsFrom(string path)
         {
             List<string> filePaths = Directory.GetFiles(path).ToList();
-            loadImagePathsFrom(filePaths);
+            LoadImagePathsFrom(filePaths);
         }
 
-        public void loadImagePathsFrom(List<string> filePaths)
+        public void LoadImagePathsFrom(List<string> filePaths)
         {
             _imagePathsList = new List<string>();
             foreach (string filePath in filePaths)
             {
-                if (isImage(filePath))
+                if (IsImage(filePath))
                 {
                     _imagePathsList.Add(filePath);
                     if (CurrentImagePath == null)
@@ -66,13 +68,13 @@ namespace ImageLibrary
         }
 
         // TODO: maybe move this to its own class?
-        public bool isImage(string path)
+        public bool IsImage(string path)
         {
             string extension = Path.GetExtension(path);
             return ImageExtensions.Contains(extension.ToLowerInvariant());
         }
 
-        public void moveToNextImage()
+        public void MoveToNextImage()
         {
             int index = -1;
             bool found = false;
@@ -92,7 +94,7 @@ namespace ImageLibrary
             }
         }
 
-        public void moveToPreviousImage()
+        public void MoveToPreviousImage()
         {
             int index = _imagePathsList.Count;
             bool finded = false;
