@@ -77,6 +77,9 @@ namespace ImageLibrary
             mainPictureBox.Image = img;
         }
 
+        /**
+         * <summary>Handles the click event on the rotate anticlockwise button.</summary> 
+         */
         private void RotateAntiClockwiseButton_Click(object sender, EventArgs e)
         {
             Image img = mainPictureBox.Image;
@@ -84,16 +87,34 @@ namespace ImageLibrary
             mainPictureBox.Image = img;
         }
 
+        /**
+         * <summary>Handles the click event on the open file menu button.</summary> 
+         */
         private void OpenFileMenuItem_Click(object sender, EventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            DialogResult dialogResult = openFileDialog.ShowDialog();
 
+            if (dialogResult == DialogResult.OK && !string.IsNullOrWhiteSpace(openFileDialog.FileName))
+            {
+                string path = openFileDialog.FileName;
+
+                throw new NotImplementedException();
+            }
         }
 
+        /**
+         * <summary>Handles the click event on the open folder menu button.</summary> 
+         */
         private void OpenFolderMenuItem_Click(object sender, EventArgs e)
         {
             OpenFolder();
         }
 
+
+        /**
+         * <summary>Handles the click event on the open file menu button. Opens the help (.chm) file.</summary> 
+         */
         private void ViewHelpMenuItem_Click(object sender, EventArgs e)
         {
             // TODO: schimba sau adauga help-ul in proiect (relativ)
@@ -101,12 +122,15 @@ namespace ImageLibrary
             Help.ShowHelp(this, helpPath);
         }
 
+        /**
+         * <summary>This function does the actual opening and forwarding of a request on a folder.</summary> 
+         */
         private void OpenFolder()
         {
             var browserDialog = new FolderBrowserDialog();
-            DialogResult result = browserDialog.ShowDialog();
+            DialogResult dialogResult = browserDialog.ShowDialog();
 
-            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(browserDialog.SelectedPath))
+            if (dialogResult == DialogResult.OK && !string.IsNullOrWhiteSpace(browserDialog.SelectedPath))
             {
                 _presenter.LoadImagesFrom(browserDialog.SelectedPath);
             }
