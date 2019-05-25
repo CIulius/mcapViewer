@@ -12,6 +12,7 @@
  *                                                                        *
  **************************************************************************/
 
+using ImageLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,8 +30,9 @@ namespace ImageViewer
         [STAThread]
         static void Main()
         {
-            ImageLibrary.Model model = new ImageLibrary.Model();
-            ImageLibrary.View view = new ImageLibrary.View(model);
+            ImageLibrary.IModel model = new ImageLibrary.Model();
+            ImageLibrary.View view = new ImageLibrary.View();
+            ImageLibrary.Presenter presenter = new Presenter(view, model);
             Application.Run(view);
         }
     }

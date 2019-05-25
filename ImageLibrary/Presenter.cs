@@ -25,7 +25,7 @@ using System.Windows.Forms;
 
 namespace ImageLibrary
 {
-    class Presenter
+    public class Presenter
     {
         private readonly IView _view;
         private IModel _model;
@@ -34,6 +34,8 @@ namespace ImageLibrary
         {
             this._view = view;
             this._model = model;
+
+            this._view.Presenter = this;
         }
 
         public void LoadImagesFrom(string path)

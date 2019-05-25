@@ -29,13 +29,23 @@ namespace ImageLibrary
     public partial class View : Form, IView
     {
         private Presenter _presenter = null;
-        private readonly Model _model;
-      
-        public View(Model model)
+
+        public View()
         {
             InitializeComponent();
-            _model = model;
-            _presenter = new Presenter(this, _model);
+        }
+        
+        public Presenter Presenter
+        {
+            get
+            {
+                return _presenter;
+            }
+
+            set
+            {
+                _presenter = value;
+            }
         }
 
         public void ShowImage(string path)
