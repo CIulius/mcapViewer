@@ -1,4 +1,19 @@
-﻿using System;
+﻿/**************************************************************************
+ *                                                                        *
+ *  File:        Model.cs                                                 *
+ *  E-mail:      brinzapaul@gmail.com                                     *
+ *  Description: The concrete model (data representation) of the image    *
+ *               viewing   application.                                   *
+ *                                                                        *
+ *  This code and information is provided "as is" without warranty of     *
+ *  any kind, either expressed or implied, including but not limited      *
+ *  to the implied warranties of merchantability or fitness for a         *
+ *  particular purpose. You are free to use this source code in your      *
+ *  applications as long as the original copyright notice is included.    *
+ *                                                                        *
+ **************************************************************************/
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -45,6 +60,9 @@ namespace ImageLibrary
             }
         }
 
+        /**
+         * <summary>This function loads images from a path.</summary> 
+         */
         public void LoadImagePathsFrom(string path)
         {
             List<string> filePaths = Directory.GetFiles(path).ToList();
@@ -67,13 +85,18 @@ namespace ImageLibrary
             }
         }
 
-        // TODO: maybe move this to its own class?
+        /**
+         * <summary>This function specifies if a path points to an image.</summary> 
+         */
         public bool IsImage(string path)
         {
             string extension = Path.GetExtension(path);
             return ImageExtensions.Contains(extension.ToLowerInvariant());
         }
 
+        /**
+         * <summary>This function moves the iterator to the next image.</summary> 
+         */
         public void MoveToNextImage()
         {
             int index = -1;
@@ -94,6 +117,9 @@ namespace ImageLibrary
             }
         }
 
+        /**
+         * <summary>This function moves the iterator to the previous image.</summary> 
+         */
         public void MoveToPreviousImage()
         {
             int index = _imagePathsList.Count;

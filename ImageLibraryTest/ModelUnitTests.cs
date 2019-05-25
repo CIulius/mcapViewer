@@ -1,4 +1,18 @@
-﻿using System;
+﻿/**************************************************************************
+ *                                                                        *
+ *  File:        ModelUnitTests.cs                                        *
+ *  E-mail:      mircea.dobreanu@gmail.com                                *
+ *  Description: Unit tests that check the model logic.                   *
+ *                                                                        *
+ *  This code and information is provided "as is" without warranty of     *
+ *  any kind, either expressed or implied, including but not limited      *
+ *  to the implied warranties of merchantability or fitness for a         *
+ *  particular purpose. You are free to use this source code in your      *
+ *  applications as long as the original copyright notice is included.    *
+ *                                                                        *
+ **************************************************************************/
+
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ImageLibrary;
 using System.Collections.Generic;

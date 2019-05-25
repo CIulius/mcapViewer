@@ -1,4 +1,19 @@
-﻿using System;
+﻿/**************************************************************************
+ *                                                                        *
+ *  File:        View.cs                                                  *
+ *  E-mail:      brinzapaul@gmail.com                                     *
+ *  Description: The View class is responsible with handling UI events    *
+ *                      and changes.                                      *
+ *                                                                        *
+ *  This code and information is provided "as is" without warranty of     *
+ *  any kind, either expressed or implied, including but not limited      *
+ *  to the implied warranties of merchantability or fitness for a         *
+ *  particular purpose. You are free to use this source code in your      *
+ *  applications as long as the original copyright notice is included.    *
+ *                                                                        *
+ **************************************************************************/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,44 +44,62 @@ namespace ImageLibrary
             this.mainPictureBox.Image = bitmap;
         }
 
-        private void browseButton_Click(object sender, EventArgs e)
+        private void BrowseButton_Click(object sender, EventArgs e)
         {
-            var browserDialog = new FolderBrowserDialog();
-            DialogResult result = browserDialog.ShowDialog();
-            
-            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(browserDialog.SelectedPath))
-            {
-                /*
-                browserDialog.Sel
-                List<string> files = Directory.GetFiles(browserDialog.SelectedPath).ToList();
-                */
-                _presenter.LoadImagesFrom(browserDialog.SelectedPath);
-            }
+            OpenFolder();
         }
 
-        private void previousButton_Click(object sender, EventArgs e)
+        private void PreviousButton_Click(object sender, EventArgs e)
         {
             _presenter.LoadAndShowPreviousImage();
         }
 
-        private void nextButton_Click(object sender, EventArgs e)
+        private void NextButton_Click(object sender, EventArgs e)
         {
             _presenter.LoadAndShowNextImage();
         }
 
 
-        private void rotateClockwiseButton_Click(object sender, EventArgs e)
+        private void RotateClockwiseButton_Click(object sender, EventArgs e)
         {
             Image img = mainPictureBox.Image;
             img.RotateFlip(RotateFlipType.Rotate90FlipNone);
             mainPictureBox.Image = img;
         }
 
-        private void rotateAntiClockwiseButton_Click(object sender, EventArgs e)
+        private void RotateAntiClockwiseButton_Click(object sender, EventArgs e)
         {
             Image img = mainPictureBox.Image;
             img.RotateFlip(RotateFlipType.Rotate270FlipNone);
             mainPictureBox.Image = img;
+        }
+
+        private void OpenFileMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OpenFolderMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFolder();
+        }
+
+        private void ViewHelpMenuItem_Click(object sender, EventArgs e)
+        {
+            // TODO: schimba sau adauga help-ul in proiect (relativ)
+            String helpPath = @"C:\Users\mircea\Desktop\HelpStudioSample.chm";
+            Help.ShowHelp(this, helpPath);
+        }
+
+        private void OpenFolder()
+        {
+            var browserDialog = new FolderBrowserDialog();
+            DialogResult result = browserDialog.ShowDialog();
+
+            if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(browserDialog.SelectedPath))
+            {
+                _presenter.LoadImagesFrom(browserDialog.SelectedPath);
+            }
         }
     }
 }
