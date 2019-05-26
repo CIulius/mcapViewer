@@ -122,7 +122,7 @@ namespace ImageLibrary
             {
                 index++;
 
-                if (_imagePathsList[index].Equals(_currentImagePath))
+                if (index < _imagePathsList.Count && _imagePathsList[index].Equals(_currentImagePath))
                 {
                     index++;
                     index %= _imagePathsList.Count;

@@ -50,17 +50,25 @@ namespace ImageLibrary
 
         public void ShowImage(string path)
         {
-            Bitmap bitmap = new Bitmap(path);
-            this.imageResolutionStatusLabel.Text = String.Format("{0}x{1}", bitmap.Width, bitmap.Height);
+            if (path != null)
+            {
+                Bitmap bitmap = new Bitmap(path);
+                this.imageResolutionStatusLabel.Text = String.Format("{0}x{1}", bitmap.Width, bitmap.Height);
 
-            Size clientSize = this.mainPictureBox.ClientSize;
+                Size clientSize = this.mainPictureBox.ClientSize;
 
-            this.indexStatusLabel.Text = _presenter.GetCurrentImagePositionInCollection();
-            this.scaleStatusLabel.Text = String.Format("{0:0.00} %", 100.0 * clientSize.Width / bitmap.Width * clientSize.Height / bitmap.Height);
-            this.imageTimestampStatusLabel.Text = File.GetCreationTime(path).ToString();
+                this.indexStatusLabel.Text = _presenter.GetCurrentImagePositionInCollection();
+                this.scaleStatusLabel.Text = String.Format("{0:0.00} %", 100.0 * clientSize.Width / bitmap.Width * clientSize.Height / bitmap.Height);
+                this.imageTimestampStatusLabel.Text = File.GetCreationTime(path).ToString();
 
-
-            this.mainPictureBox.Image = bitmap;
+                this.mainPictureBox.Image = bitmap;
+            }
+            
+            else
+            {
+                MessageBox.Show("No images were loaded!", "Invalid operation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void BrowseButton_Click(object sender, EventArgs e)
@@ -82,8 +90,16 @@ namespace ImageLibrary
         private void RotateClockwiseButton_Click(object sender, EventArgs e)
         {
             Image img = mainPictureBox.Image;
-            img.RotateFlip(RotateFlipType.Rotate90FlipNone);
-            mainPictureBox.Image = img;
+            if (img != null)
+            {
+                img.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                mainPictureBox.Image = img;
+            }
+            else
+            {
+                MessageBox.Show("No images were loaded!", "Invalid operation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         /**
@@ -92,8 +108,16 @@ namespace ImageLibrary
         private void RotateAntiClockwiseButton_Click(object sender, EventArgs e)
         {
             Image img = mainPictureBox.Image;
-            img.RotateFlip(RotateFlipType.Rotate270FlipNone);
-            mainPictureBox.Image = img;
+            if (img !=null)
+            {
+                img.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                mainPictureBox.Image = img;
+            }
+            else
+            {
+                MessageBox.Show("No images were loaded!", "Invalid operation",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         /**
