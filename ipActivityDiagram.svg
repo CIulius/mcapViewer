@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="20cm" height="39cm" viewBox="167 79 394 768" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <ellipse style="fill: #000000" cx="350" cy="90" rx="10" ry="10"/>
+  <g>
+    <ellipse style="fill: #ffffff" cx="347" cy="831" rx="15" ry="15"/>
+    <ellipse style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" cx="347" cy="831" rx="15" ry="15"/>
+    <ellipse style="fill: #000000" cx="347" cy="831" rx="10" ry="10"/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="328,268 348,248 368,268 348,288 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="328,268 348,248 368,268 348,288 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="300" y="140" width="96.5" height="52" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="300" y="140" width="96.5" height="52" rx="20" ry="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="348.25" y="161.9">
+      <tspan x="348.25" y="161.9">Select input</tspan>
+      <tspan x="348.25" y="177.9">method</tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="350,101.005 350,120.503 348.25,120.503 348.25,135.528 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="343.25,127.764 348.25,137.764 353.25,127.764 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="348.25,192 348.25,220 348,220 348,243.528 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="343,235.764 348,245.764 353,235.764 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="328,268 239.375,268 239.375,315.528 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="234.375,307.764 239.375,317.764 244.375,307.764 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="248" y="264">
+    <tspan x="248" y="264">&lt;&lt;image&gt;&gt;</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="368" y="264">
+    <tspan x="368" y="264">&lt;&lt;folder&gt;&gt;</tspan>
+  </text>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="368,268 468.425,268 468.425,315.528 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="463.425,307.764 468.425,317.764 473.425,307.764 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="172" y="320" width="134.75" height="52" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="172" y="320" width="134.75" height="52" rx="20" ry="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="239.375" y="341.9">
+      <tspan x="239.375" y="341.9">Load image paths</tspan>
+      <tspan x="239.375" y="357.9">from folder</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="384" y="320" width="168.85" height="52" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="384" y="320" width="168.85" height="52" rx="20" ry="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="468.425" y="341.9">
+      <tspan x="468.425" y="341.9">Load image paths from</tspan>
+      <tspan x="468.425" y="357.9">folder</tspan>
+    </text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="168" y="420" width="137.75" height="52" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="168" y="420" width="137.75" height="52" rx="20" ry="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="236.875" y="441.9">
+      <tspan x="236.875" y="441.9">Iterate to selected</tspan>
+      <tspan x="236.875" y="457.9">image</tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="239.375,372 239.375,396 236.875,396 236.875,415.528 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="231.875,407.764 236.875,417.764 241.875,407.764 "/>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="330,502 350,482 370,502 350,522 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="330,502 350,482 370,502 350,522 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="236.875,472 236.875,502 325.528,502 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="317.764,507 327.764,502 317.764,497 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="468.425,372 468.425,502 374.472,502 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="382.236,497 372.236,502 382.236,507 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="404" y="692" width="155.65" height="52" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="404" y="692" width="155.65" height="52" rx="20" ry="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="481.825" y="713.9">
+      <tspan x="481.825" y="713.9">Browse other images</tspan>
+      <tspan x="481.825" y="729.9">present in folder</tspan>
+    </text>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="350,522 350,536.5 350.675,536.5 350.675,546.528 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="345.675,538.764 350.675,548.764 355.675,538.764 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="288" y="551" width="125.35" height="52" rx="20" ry="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="288" y="551" width="125.35" height="52" rx="20" ry="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:normal" x="350.675" y="572.9">
+      <tspan x="350.675" y="572.9">Display selected</tspan>
+      <tspan x="350.675" y="588.9">image</tspan>
+    </text>
+  </g>
+  <g>
+    <polygon style="fill: #ffffff" points="329,656 349,636 369,656 349,676 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="329,656 349,636 369,656 349,676 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="350.675,603 350.675,619.5 349,619.5 349,631.528 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="344,623.764 349,633.764 354,623.764 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="369,656 481.825,656 481.825,687.528 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="476.825,679.764 481.825,689.764 486.825,679.764 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="329,656 233,656 233,831 327.528,831 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="319.764,836 329.764,831 319.764,826 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="481.825,744 481.825,831 366.472,831 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="374.236,826 364.236,831 374.236,836 "/>
+  </g>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="245" y="648">
+    <tspan x="245" y="648">&lt;&lt;end&gt;&gt;</tspan>
+  </text>
+  <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:sans-serif;font-style:normal;font-weight:normal" x="385" y="648">
+    <tspan x="385" y="648">&lt;&lt;browse&gt;&gt;</tspan>
+  </text>
+</svg>
