@@ -78,6 +78,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="impactViewer.ico" />
+    <Content Include="Help-iMPACtViewer.chm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\rotateAntiClockwiseButton.BackgroundImage.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -23,6 +23,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Reflection;
 
 namespace ImageLibrary
 {
@@ -160,8 +161,7 @@ namespace ImageLibrary
          */
         private void ViewHelpMenuItem_Click(object sender, EventArgs e)
         {
-            // TODO: schimba sau adauga help-ul in proiect (relativ)
-            String helpPath = @"C:\Users\mircea\Desktop\HelpStudioSample.chm";
+            String helpPath = Path.Combine(Application.StartupPath, "Help-iMPACtViewer.chm");
             Help.ShowHelp(this, helpPath);
         }
 
