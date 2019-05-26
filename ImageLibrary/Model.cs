@@ -72,6 +72,8 @@ namespace ImageLibrary
         public void LoadImagePathsFrom(List<string> filePaths)
         {
             _imagePathsList = new List<string>();
+            CurrentImagePath = null;
+
             foreach (string filePath in filePaths)
             {
                 if (IsImage(filePath))
