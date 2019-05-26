@@ -44,8 +44,13 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewHelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.imageResolutionStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.indexStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.scaleStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.imageTimestampStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.mainPictureBox)).BeginInit();
             this.mainMenuStrip.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // browseButton
@@ -98,6 +103,7 @@
             this.mainPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.mainPictureBox.TabIndex = 1;
             this.mainPictureBox.TabStop = false;
+            this.mainPictureBox.Resize += new System.EventHandler(this.mainPictureBox_Resize);
             // 
             // rotateClockwiseButton
             // 
@@ -177,21 +183,21 @@
             // openFileMenuItem
             // 
             this.openFileMenuItem.Name = "openFileMenuItem";
-            this.openFileMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openFileMenuItem.Size = new System.Drawing.Size(137, 22);
             this.openFileMenuItem.Text = "Open";
             this.openFileMenuItem.Click += new System.EventHandler(this.OpenFileMenuItem_Click);
             // 
             // openFolderMenuItem
             // 
             this.openFolderMenuItem.Name = "openFolderMenuItem";
-            this.openFolderMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openFolderMenuItem.Size = new System.Drawing.Size(137, 22);
             this.openFolderMenuItem.Text = "Open folder";
             this.openFolderMenuItem.Click += new System.EventHandler(this.OpenFolderMenuItem_Click);
             // 
             // saveMenuItem
             // 
             this.saveMenuItem.Name = "saveMenuItem";
-            this.saveMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveMenuItem.Size = new System.Drawing.Size(137, 22);
             this.saveMenuItem.Text = "Save";
             // 
             // editToolStripMenuItem
@@ -211,17 +217,55 @@
             // viewHelpToolStripMenuItem
             // 
             this.viewHelpToolStripMenuItem.Name = "viewHelpToolStripMenuItem";
-            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.viewHelpToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.viewHelpToolStripMenuItem.Text = "View help";
             this.viewHelpToolStripMenuItem.Click += new System.EventHandler(this.ViewHelpMenuItem_Click);
             // 
             // statusStrip
             // 
-            this.statusStrip.Location = new System.Drawing.Point(0, 443);
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.imageResolutionStatusLabel,
+            this.indexStatusLabel,
+            this.scaleStatusLabel,
+            this.imageTimestampStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 441);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(880, 22);
+            this.statusStrip.Size = new System.Drawing.Size(880, 24);
             this.statusStrip.TabIndex = 10;
             this.statusStrip.Text = "statusStrip1";
+            // 
+            // imageResolutionStatusLabel
+            // 
+            this.imageResolutionStatusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.imageResolutionStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
+            this.imageResolutionStatusLabel.Name = "imageResolutionStatusLabel";
+            this.imageResolutionStatusLabel.Size = new System.Drawing.Size(85, 19);
+            this.imageResolutionStatusLabel.Text = "No file loaded";
+            // 
+            // indexStatusLabel
+            // 
+            this.indexStatusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.indexStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
+            this.indexStatusLabel.Name = "indexStatusLabel";
+            this.indexStatusLabel.Size = new System.Drawing.Size(93, 19);
+            this.indexStatusLabel.Text = "Unknown index";
+            // 
+            // scaleStatusLabel
+            // 
+            this.scaleStatusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.scaleStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
+            this.scaleStatusLabel.Name = "scaleStatusLabel";
+            this.scaleStatusLabel.Size = new System.Drawing.Size(91, 19);
+            this.scaleStatusLabel.Text = "Unknown scale";
+            // 
+            // imageTimestampStatusLabel
+            // 
+            this.imageTimestampStatusLabel.BackColor = System.Drawing.Color.Transparent;
+            this.imageTimestampStatusLabel.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
+            this.imageTimestampStatusLabel.BorderStyle = System.Windows.Forms.Border3DStyle.Raised;
+            this.imageTimestampStatusLabel.Name = "imageTimestampStatusLabel";
+            this.imageTimestampStatusLabel.Size = new System.Drawing.Size(87, 19);
+            this.imageTimestampStatusLabel.Text = "No timestamp";
             // 
             // View
             // 
@@ -252,6 +296,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.mainPictureBox)).EndInit();
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -274,5 +320,9 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripMenuItem viewHelpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openFolderMenuItem;
+        private System.Windows.Forms.ToolStripStatusLabel imageResolutionStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel indexStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel scaleStatusLabel;
+        private System.Windows.Forms.ToolStripStatusLabel imageTimestampStatusLabel;
     }
 }

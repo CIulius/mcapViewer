@@ -25,9 +25,7 @@ namespace ImageLibrary
     public class Model : IModel
     {
         private static readonly List<string> ImageExtensions = new List<string> { ".jpg", ".jpe", ".bmp", ".png", ".gif" };
-
-        private IEnumerator<string> _currentImagePathEnumerator;
-
+        
         private string _currentImagePath;
         private List<string> _imagePathsList;
 
@@ -51,12 +49,28 @@ namespace ImageLibrary
         public string CurrentImagePath
         {
             get
-            {
+            { 
                 return _currentImagePath;
             }
             set
             {
                 _currentImagePath = value;
+            }
+        }
+
+        public int CurrentImageIndex
+        {
+            get 
+            { 
+                return _imagePathsList.IndexOf(_currentImagePath); 
+            }
+        }
+
+        public int CurrentCollectionSize
+        {
+            get
+            {
+                return _imagePathsList.Count; 
             }
         }
 

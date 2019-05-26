@@ -51,6 +51,15 @@ namespace ImageLibrary
         public void ShowImage(string path)
         {
             Bitmap bitmap = new Bitmap(path);
+            this.imageResolutionStatusLabel.Text = String.Format("{0}x{1}", bitmap.Width, bitmap.Height);
+
+            Size clientSize = this.mainPictureBox.ClientSize;
+
+            this.indexStatusLabel.Text = _presenter.GetCurrentImagePositionInCollection();
+            this.scaleStatusLabel.Text = String.Format("{0:0.00} %", 100.0 * clientSize.Width / bitmap.Width * clientSize.Height / bitmap.Height);
+            this.imageTimestampStatusLabel.Text = File.GetCreationTime(path).ToString();
+
+
             this.mainPictureBox.Image = bitmap;
         }
 
@@ -98,8 +107,14 @@ namespace ImageLibrary
             if (dialogResult == DialogResult.OK && !string.IsNullOrWhiteSpace(openFileDialog.FileName))
             {
                 string path = openFileDialog.FileName;
+                string containingDirectory = Path.GetDirectoryName(path);
 
-                throw new NotImplementedException();
+                _presenter.LoadImagesFrom(containingDirectory);
+                while (!_presenter.CurrentImagePath.Equals(path))
+                {
+                    _presenter.LoadNextImage();
+                }
+                _presenter.ShowCurrentImage();
             }
         }
 
@@ -133,6 +148,20 @@ namespace ImageLibrary
             if (dialogResult == DialogResult.OK && !string.IsNullOrWhiteSpace(browserDialog.SelectedPath))
             {
                 _presenter.LoadImagesFrom(browserDialog.SelectedPath);
+            }
+        }
+
+        private void mainPictureBox_Resize(object sender, EventArgs e)
+        {
+            Size clientSize = this.mainPictureBox.ClientSize;
+            Image img = this.mainPictureBox.Image;
+            if (img != null)
+            {
+                this.scaleStatusLabel.Text = String.Format("{0:0.00} %", 100.0 * clientSize.Width / img.Width * clientSize.Height / img.Height);
+            }
+            else
+            {
+                this.scaleStatusLabel.Text = "Unknown scale";
             }
         }
     }

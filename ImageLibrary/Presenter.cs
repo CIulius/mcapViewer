@@ -38,27 +38,61 @@ namespace ImageLibrary
             this._view.Presenter = this;
         }
 
+        public string CurrentImagePath {
+            get { return this._model.CurrentImagePath; }
+        }
+        
+
+        /**
+         * <summary>
+         * Function responsible with loading a folder.
+         * </summary>
+         */
         public void LoadImagesFrom(string path)
         {
             _model.LoadImagePathsFrom(path);
             ShowCurrentImage();
         }
 
+        /**
+         * <summary>
+         * Convenience function responsible with displaying the next image.
+         * </summary>
+         */
         public void LoadAndShowNextImage()
         {
             _model.MoveToNextImage();
             ShowCurrentImage();
         }
 
+        /**
+         * <summary>
+         * Convenience function responsible with displaying the previous image.
+         * </summary>
+         */
         public void LoadAndShowPreviousImage()
         {
-            _model.MoveToPreviousImage();
+            LoadNextImage();
             ShowCurrentImage();
         }
-        
+        public void LoadNextImage()
+        {
+            LoadPreviousImage();
+        }
+
+        public void LoadPreviousImage()
+        {
+            _model.MoveToPreviousImage();
+        }
+
         public void ShowCurrentImage()
         {
             _view.ShowImage(_model.CurrentImagePath);
+        }
+
+        public string GetCurrentImagePositionInCollection()
+        {
+            return String.Format("{0}/{1}", 1 + _model.CurrentImageIndex, _model.CurrentCollectionSize);
         }
     }
 }

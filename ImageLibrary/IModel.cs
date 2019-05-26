@@ -26,6 +26,8 @@ namespace ImageLibrary
         void MoveToNextImage();
         void MoveToPreviousImage();
         string CurrentImagePath { get; set; }
+        int CurrentImageIndex { get; }
+        int CurrentCollectionSize { get; }
         List<string> ImagePaths { get; }
         void LoadImagePathsFrom(string path);
     }
