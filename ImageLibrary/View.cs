@@ -126,6 +126,10 @@ namespace ImageLibrary
         private void OpenFileMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.Filter = "Image Files(*.BMP;*.JPG;*.JPE;*.JPEG;*.TIFF;*.TIF;*.ICO;*.GIF)|*.BMP;*.JPG;*.JPE;*.JPEG;*.TIFF;*.TIF;*.ICO;*.GIF";
+            openFileDialog.FilterIndex = 1;
+
             DialogResult dialogResult = openFileDialog.ShowDialog();
 
             if (dialogResult == DialogResult.OK && !string.IsNullOrWhiteSpace(openFileDialog.FileName))
