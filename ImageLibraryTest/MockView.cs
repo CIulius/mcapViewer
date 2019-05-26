@@ -1,9 +1,9 @@
 ﻿/**************************************************************************
  *                                                                        *
- *  File:        IModel.cs                                                 *
- *  E-mail:      brinzapaul@gmail.com                                     *
- *  Description: The abstract model (data representation) of the image    *
- *               viewing application.                                     *
+ *  File:        MockView.cs                                              *
+ *  E-mail:      mircea.dobreanu@gmail.com                                *
+ *  Description: Mocking class designed to help with testing of           *
+ *              presenter class.                                          *
  *                                                                        *
  *  This code and information is provided "as is" without warranty of     *
  *  any kind, either expressed or implied, including but not limited      *
@@ -12,23 +12,37 @@
  *  applications as long as the original copyright notice is included.    *
  *                                                                        *
  **************************************************************************/
-
+using ImageLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ImageLibrary
+namespace ImageLibraryTest
 {
-    public interface IModel
+    class MockView : IView
     {
-        IModel MoveToNextImage();
-        IModel MoveToPreviousImage();
-        string CurrentImagePath { get; set; }
-        int CurrentImageIndex { get; }
-        int CurrentCollectionSize { get; }
-        List<string> ImagePaths { get; }
-        void LoadImagePathsFrom(string path);
+        private Presenter _presenter;
+        public MockView()
+        {
+        }
+
+        Presenter IView.Presenter
+        {
+            get
+            {
+                return _presenter;
+            }
+
+            set
+            {
+                _presenter = value;
+            }
+        }
+
+        void IView.ShowImage(string path)
+        {
+        }
     }
 }

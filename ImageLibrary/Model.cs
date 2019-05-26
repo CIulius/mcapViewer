@@ -24,7 +24,7 @@ namespace ImageLibrary
 {
     public class Model : IModel
     {
-        private static readonly List<string> ImageExtensions = new List<string> { ".jpg", ".jpe", ".bmp", ".png", ".gif" };
+        private static readonly List<string> ImageExtensions = new List<string> { ".jpg", ".jpe", ".jpeg", ".bmp", ".png", ".gif", ".tiff", ".tif", ".ico" };
         
         private string _currentImagePath;
         private List<string> _imagePathsList;
@@ -104,16 +104,28 @@ namespace ImageLibrary
         /**
          * <summary>This function specifies if a path points to an image.</summary> 
          */
-        public bool IsImage(string path)
+        public static bool IsImage(string path)
         {
-            string extension = Path.GetExtension(path);
-            return ImageExtensions.Contains(extension.ToLowerInvariant());
+            if (path == null)
+            {
+                return false;
+            }
+
+            try
+            {
+                string extension = Path.GetExtension(path);
+                return ImageExtensions.Contains(extension.ToLowerInvariant());
+            }
+            catch (ArgumentException)
+            {
+                return false;
+            }
         }
 
         /**
          * <summary>This function moves the iterator to the next image.</summary> 
          */
-        public void MoveToNextImage()
+        public IModel MoveToNextImage()
         {
             int index = -1;
             bool found = false;
@@ -131,12 +143,14 @@ namespace ImageLibrary
                     found = true;
                 }
             }
+
+            return this;
         }
 
         /**
          * <summary>This function moves the iterator to the previous image.</summary> 
          */
-        public void MoveToPreviousImage()
+        public IModel MoveToPreviousImage()
         {
             int index = _imagePathsList.Count;
             bool finded = false;
@@ -156,6 +170,8 @@ namespace ImageLibrary
                     finded = true;
                 }
             }
+
+            return this;
         }
     }
 }

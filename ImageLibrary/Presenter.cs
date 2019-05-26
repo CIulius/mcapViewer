@@ -32,6 +32,9 @@ namespace ImageLibrary
 
         public Presenter(IView view, IModel model)
         {
+            if (view == null || model == null)
+                throw new ArgumentNullException("Null argument passed to presenter constructor.");
+
             this._view = view;
             this._model = model;
 
@@ -48,10 +51,11 @@ namespace ImageLibrary
          * Function responsible with loading a folder.
          * </summary>
          */
-        public void LoadImagesFrom(string path)
+        public Presenter LoadImagesFrom(string path)
         {
             _model.LoadImagePathsFrom(path);
             ShowCurrentImage();
+            return this;
         }
 
         /**
@@ -59,10 +63,11 @@ namespace ImageLibrary
          * Convenience function responsible with displaying the next image.
          * </summary>
          */
-        public void LoadAndShowNextImage()
+        public Presenter LoadAndShowNextImage()
         {
             _model.MoveToNextImage();
             ShowCurrentImage();
+            return this;
         }
 
         /**
@@ -70,19 +75,22 @@ namespace ImageLibrary
          * Convenience function responsible with displaying the previous image.
          * </summary>
          */
-        public void LoadAndShowPreviousImage()
+        public Presenter LoadAndShowPreviousImage()
         {
             LoadNextImage();
             ShowCurrentImage();
+            return this;
         }
-        public void LoadNextImage()
+        public Presenter LoadNextImage()
         {
             LoadPreviousImage();
+            return this;
         }
 
-        public void LoadPreviousImage()
+        public Presenter LoadPreviousImage()
         {
             _model.MoveToPreviousImage();
+            return this;
         }
 
         public void ShowCurrentImage()
